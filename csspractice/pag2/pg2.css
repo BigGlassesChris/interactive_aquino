@@ -1,0 +1,122 @@
+ .logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
+ }
+
+ .logo img {
+    width: 130px;
+    height: auto;
+ }
+ 
+
+body {
+    background-color: #1695a3;
+    color: #FFFFFF;
+}
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 30px;
+}
+
+/* Dropdown container */
+.dropdown {
+    position: relative;
+}
+
+/* Dropdown menu */
+.dropdown-content{
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/*Links inside dropdown */
+
+.dropdown-content a {
+    display: block;
+    padding: 15px;
+    font-size: 20px;
+}
+
+/* Show dropdown when hovering */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+p {
+    color: #EB7F00;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+h3 {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
+p {
+    color:#FFFFFF
+}
+
+li {
+    color: #FFFFFF;
+    font-weight: 100px;
+    font-size: 25px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-bottom: 15px;
+}
+
+/*Process Reflection Box*/
+
+.reflection-box {
+    background-color: white;
+    border: 3px solid #f2c94c;
+    width: 70%;
+    margin: 30px auto;
+    padding: 25px;
+    box-sizing: border-box;
+
+}
+
+.reflection-box strong {
+    display: block;
+    text-align: center;
+    font-size: 28px;
+    color: #333333;
+    font-family: Georgia, serif;
+}
+
+.reflection-box p {
+    color: #333333;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.reflection {
+    color: #333333;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+
+    background-color: white;
+    border: 3px solid #f2c94c;
+    padding: 25px;
+    width: 70%;
+    margin: 30px auto;
+    
+    box-sizing: border-box;
+}
