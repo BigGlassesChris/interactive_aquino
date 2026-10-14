@@ -1,0 +1,68 @@
+/* the * indicates universal styles, we will get into that later in the semester
+for now, you can leave these alone */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Css is how we add all things style, below there are two simple styles added
+go ahead and play with these, can you get the colors to change? What do you notice?
+ */
+ .logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
+ }
+
+ .logo img {
+    width: 130px;
+    height: auto;
+ }
+ 
+body {
+
+    color: #26241C;
+    background-color: #ffffff;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 30px;
+}
+
+/* Dropdown container */
+.dropdown {
+    position: relative;
+}
+
+/* Dropdown menu */
+.dropdown-content{
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/*Links inside dropdown */
+
+.dropdown-content a {
+    display: block;
+    padding: 15px;
+    font-size: 20px;
+}
+
+/* Show dropdown when hovering */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
