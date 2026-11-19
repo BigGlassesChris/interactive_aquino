@@ -1,4 +1,5 @@
-/* Universal styles */
+/* UNIVERSAL STYLES */
+
 * {
     margin: 0;
     padding: 0;
@@ -6,21 +7,70 @@
 }
 
 
-/* Logo */
+/* LOGO - BACK TO HOME */
+
 .logo {
     position: absolute;
     top: 20px;
     left: 20px;
     z-index: 100;
+
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .logo img {
     width: 130px;
     height: auto;
+    display: block;
+
+    transition: transform 0.3s ease,
+                opacity 0.3s ease;
+}
+
+/* Logo hover animation */
+
+.logo:hover img {
+    transform: scale(1.05);
+    opacity: 0.8;
+}
+
+/* Back to Home label */
+
+.logo::after {
+    content: "BACK TO HOME";
+    display: block;
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-top: 6px;
+    padding: 6px 8px;
+
+    color: #F58220;
+    background-color: #ffffff;
+    border-radius: 4px;
+
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Show label on hover */
+
+.logo:hover::after {
+    opacity: 1;
+}
+
+/* Keyboard accessibility */
+
+.logo:focus-visible {
+    outline: 2px solid #F58220;
+    outline-offset: 5px;
 }
 
 
-/* Body */
+/* BODY */
+
 body {
     color: #26241C;
     background-color: #fff6de;
@@ -28,7 +78,8 @@ body {
 }
 
 
-/* Navigation bar */
+/* NAVIGATION BAR */
+
 nav {
     display: flex;
     justify-content: space-evenly;
@@ -44,7 +95,8 @@ nav {
 }
 
 
-/* Main navigation links */
+/* MAIN NAVIGATION LINKS */
+
 nav > a,
 nav .dropbtn {
     text-decoration: none;
@@ -52,31 +104,35 @@ nav .dropbtn {
     font-size: 30px;
     padding: 10px;
     display: block;
-
 }
 
 
-/* Dropdown container */
+/* DROPDOWN CONTAINER */
+
 .dropdown {
     position: relative;
 }
 
 
-/* Dropdown menu */
+/* DROPDOWN MENU */
+
 .dropdown-content {
     display: none;
     position: absolute;
     top: 100%;
     left: 0;
+
     background-color: #F58220;
     min-width: 200px;
     z-index: 100;
+
     border-radius: 0 0 10px 10px;
     overflow: hidden;
 }
 
 
-/* Links inside dropdown */
+/* LINKS INSIDE DROPDOWN */
+
 .dropdown-content a {
     display: block;
     padding: 15px;
@@ -86,19 +142,22 @@ nav .dropbtn {
 }
 
 
-/* Show dropdown when hovering */
+/* SHOW DROPDOWN ON HOVER */
+
 .dropdown:hover .dropdown-content {
     display: block;
 }
 
 
-/* Hover effect for dropdown links */
+/* DROPDOWN HOVER EFFECT */
+
 .dropdown-content a:hover {
     background-color: #D9660B;
 }
 
 
-/* Main page title */
+/* MAIN PAGE TITLE */
+
 h1 {
     text-align: center;
     font-size: 45px;
@@ -108,28 +167,32 @@ h1 {
 }
 
 
-/* Main content area */
+/* MAIN CONTENT AREA */
+
 main {
     width: 80%;
     margin: auto;
 }
 
 
-/* Individual inspiration sections */
+/* INDIVIDUAL INSPIRATION SECTIONS */
+
 .inspiration {
     text-align: center;
     margin-bottom: 60px;
 }
 
 
-/* Inspiration headings */
+/* INSPIRATION HEADINGS */
+
 .inspiration h2 {
     font-size: 28px;
     margin-bottom: 20px;
 }
 
 
-/* Inspiration images */
+/* INSPIRATION IMAGES */
+
 .inspiration img {
     width: 450px;
     height: 450px;
@@ -139,7 +202,8 @@ main {
 }
 
 
-/* Inspiration descriptions */
+/* INSPIRATION DESCRIPTIONS */
+
 .inspiration p {
     text-align: left;
     font-size: 18px;
@@ -148,14 +212,16 @@ main {
 }
 
 
-/* Process reflection */
+/* PROCESS REFLECTION */
+
 .reflection {
     margin-top: 40px;
     margin-bottom: 60px;
 }
 
 
-/* Process reflection heading */
+/* PROCESS REFLECTION HEADING */
+
 .reflection h2 {
     text-align: center;
     font-size: 28px;
@@ -163,12 +229,16 @@ main {
 }
 
 
-/* Process reflection paragraph */
+/* PROCESS REFLECTION PARAGRAPH */
+
 .reflection p {
     font-size: 18px;
     line-height: 1.6;
     text-align: left;
 }
+
+
+/* NAVIGATION FONT */
 
 nav {
     font-family: inherit;
@@ -176,4 +246,112 @@ nav {
 
 nav a {
     font-family: inherit;
+}
+
+
+/* RESPONSIVE DESIGN */
+
+@media screen and (max-width: 700px) {
+
+    /* Logo */
+
+    .logo {
+        top: 12px;
+        left: 12px;
+    }
+
+    .logo img {
+        width: 90px;
+    }
+
+    /* Keep home label visible on mobile */
+
+    .logo::after {
+        opacity: 1;
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    /* Navigation */
+
+    nav {
+        width: 100%;
+        padding: 15px 10px;
+        gap: 5px;
+        border-radius: 0;
+        flex-wrap: wrap;
+    }
+
+    nav > a,
+    nav .dropbtn {
+        font-size: 18px;
+        padding: 8px;
+    }
+
+    /* Dropdown */
+
+    .dropdown-content {
+        min-width: 160px;
+    }
+
+    .dropdown-content a {
+        font-size: 15px;
+        padding: 12px;
+    }
+
+    /* Main title */
+
+    h1 {
+        font-size: 32px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    /* Main content */
+
+    main {
+        width: 95%;
+    }
+
+    /* Inspiration sections */
+
+    .inspiration {
+        margin-bottom: 45px;
+    }
+
+    .inspiration h2 {
+        font-size: 24px;
+    }
+
+    /* Inspiration images */
+
+    .inspiration img {
+        width: 100%;
+        height: auto;
+        max-width: 450px;
+    }
+
+    /* Descriptions */
+
+    .inspiration p {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    /* Reflection */
+
+    .reflection {
+        margin-top: 30px;
+        margin-bottom: 40px;
+    }
+
+    .reflection h2 {
+        font-size: 24px;
+    }
+
+    .reflection p {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
 }

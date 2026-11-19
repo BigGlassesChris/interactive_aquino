@@ -1,5 +1,4 @@
-/* the * indicates universal styles, we will get into that later in the semester
-for now, you can leave these alone */
+/* UNIVERSAL STYLES */
 
 * {
     margin: 0;
@@ -7,31 +6,79 @@ for now, you can leave these alone */
     box-sizing: border-box;
 }
 
-/* Css is how we add all things style, below there are two simple styles added
-go ahead and play with these, can you get the colors to change? What do you notice?
- */
 
- .logo {
+/* LOGO - BACK TO HOME */
+
+.logo {
     position: absolute;
     top: 20px;
     left: 20px;
     z-index: 100;
- }
 
- .logo img {
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.logo img {
     width: 130px;
     height: auto;
- }
+    display: block;
+
+    transition: transform 0.3s ease,
+                opacity 0.3s ease;
+}
+
+/* Logo hover animation */
+
+.logo:hover img {
+    transform: scale(1.05);
+    opacity: 0.8;
+}
+
+/* Back to Home label */
+
+.logo::after {
+    content: "BACK TO HOME";
+    display: block;
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-top: 6px;
+    padding: 6px 8px;
+
+    color: #F58220;
+    background-color: #ffffff;
+    border-radius: 4px;
+
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Show label on hover */
+
+.logo:hover::after {
+    opacity: 1;
+}
+
+/* Keyboard accessibility */
+
+.logo:focus-visible {
+    outline: 2px solid #F58220;
+    outline-offset: 5px;
+}
+
+
+/* BODY */
 
 body {
-
     color: #26241C;
     background-color: #fff6de;
 }
 
 
+/* NAVIGATION BAR */
 
-/* Navigation bar */
 nav {
     display: flex;
     justify-content: space-evenly;
@@ -46,7 +93,9 @@ nav {
     border-radius: 25px 0 0 25px;
 }
 
-/* Main navigation links */
+
+/* MAIN NAVIGATION LINKS */
+
 nav > a,
 nav .dropbtn {
     text-decoration: none;
@@ -56,23 +105,30 @@ nav .dropbtn {
     display: block;
 }
 
-/* Dropdown container */
+
+/* DROPDOWN CONTAINER */
+
 .dropdown {
     position: relative;
 }
 
-/* Dropdown menu */
+
+/* DROPDOWN MENU */
+
 .dropdown-content {
     display: none;
     position: absolute;
     top: 100%;
     left: 0;
+
     background-color: #F58220;
     min-width: 200px;
     z-index: 100;
 }
 
-/* Links inside dropdown */
+
+/* LINKS INSIDE DROPDOWN */
+
 .dropdown-content a {
     display: block;
     padding: 15px;
@@ -81,15 +137,22 @@ nav .dropbtn {
     text-decoration: none;
 }
 
-/* Show dropdown when hovering */
+
+/* SHOW DROPDOWN ON HOVER */
+
 .dropdown:hover .dropdown-content {
     display: block;
 }
 
-/* Hover effect for dropdown links */
+
+/* DROPDOWN HOVER EFFECT */
+
 .dropdown-content a:hover {
     background-color: #D9660B;
 }
+
+
+/* PAGE TITLE */
 
 .page-title {
     text-align: center;
@@ -99,11 +162,16 @@ nav .dropbtn {
     color: #26241C;
 }
 
-/* Process reflection */
+
+/* PROCESS REFLECTION */
+
 .reflection {
     margin-top: 40px;
     margin-bottom: 60px;
 }
+
+
+/* REFLECTION HEADING */
 
 .reflection h2 {
     text-align: center;
@@ -111,10 +179,91 @@ nav .dropbtn {
     margin-bottom: 20px;
 }
 
+
+/* REFLECTION PARAGRAPH */
+
 .reflection p {
     font-size: 18px;
     line-height: 1.6;
     text-align: left;
     width: 80%;
     margin: auto;
+}
+
+
+/* RESPONSIVE DESIGN */
+
+@media screen and (max-width: 700px) {
+
+    /* Logo */
+
+    .logo {
+        top: 12px;
+        left: 12px;
+    }
+
+    .logo img {
+        width: 90px;
+    }
+
+    /* Keep home label visible on mobile */
+
+    .logo::after {
+        opacity: 1;
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    /* Navigation */
+
+    nav {
+        width: 100%;
+        padding: 15px 10px;
+        gap: 5px;
+        border-radius: 0;
+        flex-wrap: wrap;
+    }
+
+    nav > a,
+    nav .dropbtn {
+        font-size: 18px;
+        padding: 8px;
+    }
+
+    /* Dropdown */
+
+    .dropdown-content {
+        min-width: 160px;
+    }
+
+    .dropdown-content a {
+        font-size: 15px;
+        padding: 12px;
+    }
+
+    /* Page title */
+
+    .page-title {
+        font-size: 32px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    /* Reflection */
+
+    .reflection {
+        margin-top: 30px;
+        margin-bottom: 40px;
+    }
+
+    .reflection h2 {
+        font-size: 24px;
+    }
+
+    .reflection p {
+        font-size: 16px;
+        line-height: 1.5;
+        width: 90%;
+    }
+
 }

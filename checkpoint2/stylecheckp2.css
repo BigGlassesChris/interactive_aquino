@@ -7,18 +7,64 @@
 }
 
 
-/* LOGO */
+/* LOGO - BACK TO HOME */
 
 .logo {
     position: absolute;
     top: 20px;
     left: 20px;
     z-index: 100;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .logo img {
     width: 130px;
     height: auto;
+    display: block;
+
+    transition: transform 0.3s ease,
+                opacity 0.3s ease;
+}
+
+/* Logo hover animation */
+
+.logo:hover img {
+    transform: scale(1.05);
+    opacity: 0.8;
+}
+
+/* Back to Home label */
+
+.logo::after {
+    content: "BACK TO HOME";
+    display: block;
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-top: 6px;
+    padding: 6px 8px;
+
+    color: #F58220;
+    background-color: #ffffff;
+    border-radius: 4px;
+
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Show label on hover */
+
+.logo:hover::after {
+    opacity: 1;
+}
+
+/* Keyboard accessibility */
+
+.logo:focus-visible {
+    outline: 2px solid #F58220;
+    outline-offset: 5px;
 }
 
 
@@ -206,9 +252,63 @@ footer {
 
 @media screen and (max-width: 700px) {
 
-    .logo img {
-        width: 90px;
+    /* Responsive logo */
+
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.logo img {
+    width: 130px;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.logo:hover img {
+    transform: scale(1.05);
+    opacity: 0.8;
+}
+
+.logo::after {
+    content: "BACK TO HOME";
+    display: block;
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-top: 6px;
+    padding: 6px 8px;
+    color: #F58220;
+    background-color: #ffffff;
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.logo:hover::after {
+    opacity: 1;
+}
+
+.logo:focus-visible {
+    outline: 2px solid #F58220;
+    outline-offset: 5px;
+}
+
+    /* Keep home label visible on mobile */
+
+    .logo::after {
+        opacity: 1;
+        font-size: 8px;
+        letter-spacing: 1px;
     }
+
+    /* Navigation */
 
     nav {
         width: 85%;
@@ -231,9 +331,13 @@ footer {
         padding: 12px;
     }
 
+    /* Main content */
+
     main {
         width: 95%;
     }
+
+    /* Page heading */
 
     .page-header {
         margin-top: 70px;
@@ -243,6 +347,8 @@ footer {
     .page-header h1 {
         font-size: 34px;
     }
+
+    /* Entries */
 
     .entry {
         margin-bottom: 60px;
@@ -257,6 +363,8 @@ footer {
         font-size: 16px;
     }
 
+    /* Image galleries */
+
     .image-gallery {
         flex-direction: column;
         align-items: center;
@@ -267,4 +375,5 @@ footer {
     .image-gallery.single-image img {
         width: 90%;
     }
+
 }

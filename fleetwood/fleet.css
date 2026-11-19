@@ -1,115 +1,195 @@
+/* CUSTOM FLEETWOOD MAC FONT */
+
 @font-face {
-  font-family: fleetwoodMac;
+    font-family: fleetwoodMac;
     src: url("fonts/fleetwoodMac.ttf") format("truetype");
 }
- .logo {
+
+
+/* UNIVERSAL STYLES */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* LOGO - BACK TO HOME */
+
+.logo {
     position: absolute;
     top: 20px;
     left: 20px;
     z-index: 100;
 
- }
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+}
 
- .logo img {
+.logo img {
     width: 130px;
     height: auto;
+    display: block;
     border: transparent;
- }
 
-* {
-  margin: 0;      
-  padding: 0;
-  box-sizing: border-box;
+    transition: transform 0.3s ease,
+                opacity 0.3s ease;
 }
+
+/* Logo hover animation */
+
+.logo:hover img {
+    transform: scale(1.05);
+    opacity: 0.8;
+}
+
+/* Back to Home label */
+
+.logo::after {
+    content: "BACK TO HOME";
+    display: block;
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-top: 6px;
+    padding: 6px 8px;
+
+    color: #F58220;
+    background-color: #ffffff;
+    border-radius: 4px;
+
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Show label on hover */
+
+.logo:hover::after {
+    opacity: 1;
+}
+
+/* Keyboard accessibility */
+
+.logo:focus-visible {
+    outline: 2px solid #F58220;
+    outline-offset: 5px;
+}
+
+
+/* BODY */
 
 body {
-  background-color: #F2EBDC;
-  color: #0d0d0d;
-  font-family: 'fleetwoodMac', sans-serif;
-  text-transform: uppercase; 
+    background-color: #F2EBDC;
+    color: #0d0d0d;
+    font-family: 'fleetwoodMac', sans-serif;
+    text-transform: uppercase;
 }
 
+
+/* HEADINGS */
+
 h1 {
-  font-family: "fleetwoodMac",sans-serif ;
-  font-size: 45px;
+    font-family: "fleetwoodMac", sans-serif;
+    font-size: 45px;
 }
 
 h2 {
-  font-size: 36px;
-  font-family: fleetwoodMac, sans-serif;
-  letter-spacing: 5px;
+    font-size: 36px;
+    font-family: fleetwoodMac, sans-serif;
+    letter-spacing: 5px;
 }
+
+
+/* PARAGRAPHS */
 
 p {
-  font-family:Georgia, 'Times New Roman', Times, serif;
-  font-size: 18px;
-  line-height: 22px;
-  text-transform: capitalize;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 18px;
+    line-height: 22px;
+    text-transform: capitalize;
 }
+
+
+/* LISTS */
 
 li {
-  font-family:Georgia, 'Times New Roman', Times, serif;
-  font-size: 12px;
-  line-height: 22px;
-  letter-spacing: 5px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 12px;
+    line-height: 22px;
+    letter-spacing: 5px;
+
+    margin-top: 10px;
+    padding-left: 35px;
+    list-style-type: disc;
 }
+
+
+/* INFORMATION */
 
 #info {
-  font-size: 16px;
-  text-transform: none;
-  margin-bottom: 5px;
+    font-size: 16px;
+    text-transform: none;
+    margin-bottom: 5px;
 }
 
-header, footer {
-  margin: 5px;
-  padding: 25px;
-  border: 2px solid #0D0D0D;
-  border-radius: 8px;
-  background: #0D0D0D;
-  color: #ffffff;
+
+/* HEADER AND FOOTER */
+
+header,
+footer {
+    margin: 5px;
+    padding: 25px;
+    border: 2px solid #0D0D0D;
+    border-radius: 8px;
+    background: #0D0D0D;
+    color: #ffffff;
 }
+
+
+/* IMAGES */
 
 img {
-  max-width: 100%;
-  border: .5px solid #0D0D0D;
+    max-width: 100%;
+    border: .5px solid #0D0D0D;
 }
 
 
+/* CONTENT LAYOUT */
 
-#content{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-evenly;
-  gap: 4%;
+#content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    gap: 4%;
 }
 
-#lyrics{
-  padding: 40px 45px 50px;
 
+/* LYRICS SECTION */
 
+#lyrics {
+    padding: 40px 45px 50px;
 }
 
-#album{
 
-  box-sizing: border-box;
-  padding: 40px 45px 50px;
-  
+/* ALBUM SECTION */
+
+#album {
+    box-sizing: border-box;
+    padding: 40px 45px 50px;
 }
 
 #album img {
-  width: 75%;
-  height: auto;
-  display: block;
+    width: 75%;
+    height: auto;
+    display: block;
 }
 
 
-li{
-  margin-top: 10px;
-  padding-left: 35px;
-  list-style-type: disc;
-}
-/* Navigation bar */
+/* NAVIGATION BAR */
+
 nav {
     display: flex;
     justify-content: space-evenly;
@@ -124,7 +204,9 @@ nav {
     border-radius: 25px 0 0 25px;
 }
 
-/* Main navigation links */
+
+/* MAIN NAVIGATION LINKS */
+
 nav > a,
 nav .dropbtn {
     text-decoration: none;
@@ -134,23 +216,30 @@ nav .dropbtn {
     display: block;
 }
 
-/* Dropdown container */
+
+/* DROPDOWN CONTAINER */
+
 .dropdown {
     position: relative;
 }
 
-/* Dropdown menu */
+
+/* DROPDOWN MENU */
+
 .dropdown-content {
     display: none;
     position: absolute;
     top: 100%;
     left: 0;
+
     background-color: #F58220;
     min-width: 200px;
     z-index: 100;
 }
 
-/* Links inside dropdown */
+
+/* LINKS INSIDE DROPDOWN */
+
 .dropdown-content a {
     display: block;
     padding: 15px;
@@ -159,12 +248,138 @@ nav .dropbtn {
     text-decoration: none;
 }
 
-/* Show dropdown when hovering */
+
+/* SHOW DROPDOWN ON HOVER */
+
 .dropdown:hover .dropdown-content {
     display: block;
 }
 
-/* Hover effect for dropdown links */
+
+/* DROPDOWN HOVER EFFECT */
+
 .dropdown-content a:hover {
     background-color: #D9660B;
+}
+
+
+/* RESPONSIVE DESIGN */
+
+@media screen and (max-width: 700px) {
+
+    /* LOGO */
+
+    .logo {
+        top: 12px;
+        left: 12px;
+    }
+
+    .logo img {
+        width: 90px;
+    }
+
+    /* Keep home label visible on mobile */
+
+    .logo::after {
+        opacity: 1;
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+
+    /* NAVIGATION */
+
+    nav {
+        width: 100%;
+        padding: 15px 10px;
+        gap: 5px;
+        border-radius: 0;
+        flex-wrap: wrap;
+    }
+
+    nav > a,
+    nav .dropbtn {
+        font-size: 17px;
+        padding: 8px;
+    }
+
+
+    /* DROPDOWN */
+
+    .dropdown-content {
+        min-width: 160px;
+    }
+
+    .dropdown-content a {
+        font-size: 15px;
+        padding: 12px;
+    }
+
+
+    /* HEADINGS */
+
+    h1 {
+        font-size: 32px;
+    }
+
+    h2 {
+        font-size: 25px;
+        letter-spacing: 3px;
+    }
+
+
+    /* CONTENT LAYOUT */
+
+    #content {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+
+    /* LYRICS */
+
+    #lyrics {
+        width: 100%;
+        padding: 25px 20px;
+    }
+
+
+    /* ALBUM */
+
+    #album {
+        width: 100%;
+        padding: 25px 20px;
+    }
+
+    #album img {
+        width: 90%;
+        margin: auto;
+    }
+
+
+    /* PARAGRAPHS */
+
+    p {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+
+    /* LISTS */
+
+    li {
+        font-size: 11px;
+        letter-spacing: 3px;
+        padding-left: 20px;
+    }
+
+
+    /* HEADER AND FOOTER */
+
+    header,
+    footer {
+        padding: 20px;
+    }
+
 }

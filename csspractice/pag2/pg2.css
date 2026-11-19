@@ -1,14 +1,48 @@
- .logo {
+.logo {
     position: absolute;
     top: 20px;
     left: 20px;
     z-index: 100;
- }
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+}
 
- .logo img {
+.logo img {
     width: 130px;
     height: auto;
- }
+    display: block;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.logo:hover img {
+    transform: scale(1.05);
+    opacity: 0.8;
+}
+
+.logo::after {
+    content: "BACK TO HOME";
+    display: block;
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-top: 6px;
+    padding: 6px 8px;
+    color: #F58220;
+    background-color: #ffffff;
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.logo:hover::after {
+    opacity: 1;
+}
+
+.logo:focus-visible {
+    outline: 2px solid #F58220;
+    outline-offset: 5px;
+}
  
 
 body {

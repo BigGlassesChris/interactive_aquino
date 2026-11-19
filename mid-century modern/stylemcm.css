@@ -1,9 +1,14 @@
 /* remember that style sheets cascade, so whatever is on the bottom will override whats on top. Don't have multiple statements for the same element. Organization and hierarchy are key, start with larger elements and work your way down.
 
 Do they best you can with this, talk with each other and help each other. Most colors and fonts are provided for you. Use adobe color to find the other colors from the sample image.*/
-*{
+/* UNIVERSAL STYLES */
+
+* {
     box-sizing: border-box;
 }
+
+
+/* BODY */
 
 body {
     margin: 0;
@@ -13,30 +18,86 @@ body {
     font-size: 14px;
 }
 
- .logo {
+
+/* LOGO - BACK TO HOME */
+
+.logo {
     position: absolute;
     top: 20px;
     left: 20px;
     z-index: 100;
- }
 
- .logo img {
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.logo img {
     width: 130px;
     height: auto;
- }
+    display: block;
+
+    transition: transform 0.3s ease,
+                opacity 0.3s ease;
+}
+
+/* Logo hover animation */
+
+.logo:hover img {
+    transform: scale(1.05);
+    opacity: 0.8;
+}
+
+/* Back to Home label */
+
+.logo::after {
+    content: "BACK TO HOME";
+    display: block;
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-top: 6px;
+    padding: 6px 8px;
+
+    color: #F58220;
+    background-color: #ffffff;
+    border-radius: 4px;
+
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Show label on hover */
+
+.logo:hover::after {
+    opacity: 1;
+}
+
+/* Keyboard accessibility */
+
+.logo:focus-visible {
+    outline: 2px solid #F58220;
+    outline-offset: 5px;
+}
+
+
+/* MAIN CONTENT WIDTH */
 
 #navigation,
 header,
-body>.wrap {
+body > .wrap {
     width: 700px;
     max-width: 90%;
     margin: 0 auto;
     background-color: #c7e2ee;
 }
 
-body> .wrap {
+body > .wrap {
     margin-top: -17px;
 }
+
+
+/* NAVIGATION */
 
 #navigation {
     padding: 20px 30px 10px;
@@ -50,17 +111,20 @@ nav {
 nav a {
     color: #087f91;
     text-decoration: none;
-    font-family: "Joesfin Sans", sans-serif;
+    font-family: "Josefin Sans", sans-serif;
     font-weight: 600;
     text-transform: uppercase;
     font-size: 13px;
 }
 
 nav a:hover {
-    color: #3a400c
+    color: #3a400c;
 }
 
-header{
+
+/* HEADER */
+
+header {
     padding: 2px 12px 10px;
     text-align: center;
 }
@@ -74,14 +138,19 @@ header h1 {
 }
 
 header h1 a {
-    color:#3a400c;
+    color: #3a400c;
     text-decoration: none;
 }
 
+
+/* MAIN WRAPPER */
+
 .wrap {
     padding: 0 30px 30px;
-    
 }
+
+
+/* ARTICLE AND ASIDE HEADINGS */
 
 article h3,
 aside h3 {
@@ -99,12 +168,18 @@ article h2 {
     margin-bottom: 15px;
 }
 
+
+/* PARAGRAPHS */
+
 article p,
 aside p {
     font-family: "Lato", sans-serif;
     font-size: 14px;
     line-height: 1.25;
 }
+
+
+/* ARTICLE IMAGES */
 
 article img {
     width: 100%;
@@ -113,12 +188,18 @@ article img {
     margin: 15px 0;
 }
 
-aside img{
+
+/* ASIDE IMAGES */
+
+aside img {
     width: 32%;
     height: auto;
     display: inline-block;
     vertical-align: top;
 }
+
+
+/* ASIDE LISTS */
 
 aside ul {
     padding-left: 20px;
@@ -131,6 +212,9 @@ aside li {
     line-height: 1.3;
 }
 
+
+/* ASIDE LINKS */
+
 aside a {
     color: #3a400c;
     text-decoration: none;
@@ -140,7 +224,10 @@ aside a:hover {
     text-decoration: underline;
 }
 
-footer{
+
+/* FOOTER */
+
+footer {
     width: 700px;
     max-width: 90%;
     margin: 0 auto;
@@ -148,6 +235,9 @@ footer{
     background-color: #04adbf;
     text-align: center;
 }
+
+
+/* SOCIAL LINKS */
 
 .social-links {
     display: flex;
@@ -163,11 +253,17 @@ footer{
     font-size: 12px;
 }
 
+
+/* FOOTER DIVIDER */
+
 footer hr {
     border: 0;
     border-top: 1px solid #3a400c;
     margin: 12px 0;
 }
+
+
+/* FOOTER PARAGRAPHS */
 
 footer p {
     margin: 0;
@@ -180,3 +276,81 @@ footer p a {
     text-decoration: none;
 }
 
+
+/* RESPONSIVE DESIGN */
+
+@media screen and (max-width: 700px) {
+
+    /* Logo */
+
+    .logo {
+        top: 12px;
+        left: 12px;
+    }
+
+    .logo img {
+        width: 90px;
+    }
+
+    /* Keep home label visible on mobile */
+
+    .logo::after {
+        opacity: 1;
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    /* Main content */
+
+    #navigation,
+    header,
+    body > .wrap,
+    footer {
+        max-width: 95%;
+    }
+
+    /* Navigation */
+
+    #navigation {
+        padding: 15px 15px 10px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    /* Header */
+
+    header h1 {
+        font-size: 25px;
+    }
+
+    /* Main wrapper */
+
+    .wrap {
+        padding: 0 15px 25px;
+    }
+
+    /* Aside images */
+
+    aside img {
+        width: 31%;
+    }
+
+    /* Footer */
+
+    footer {
+        padding: 15px;
+    }
+
+    .social-links {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+}
