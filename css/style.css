@@ -1,5 +1,7 @@
-/* UNIVERSAL STYLES */
+/* PLAYFAIR DISPLAY FONT */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
 
+/* UNIVERSAL STYLES */
 * {
     margin: 0;
     padding: 0;
@@ -7,53 +9,92 @@
 }
 
 
-/* BODY */
+
+
+/* ==============================
+   BODY / BACKGROUND
+================================= */
 
 body {
-    color: #26241C;
-    background-color: #ffffff;
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    color: #000000;
+    background-color: #15549A;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,0.12) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.12) 1px,
+            transparent 1px
+        ),
+        url("../img/blue\ background.png");
+
+    background-size:
+        28px 28px,
+        28px 28px,
+        cover;
+
+    background-position:
+        center,
+        center,
+        center;
+
+    background-repeat:
+        repeat,
+        repeat,
+        no-repeat;
+
+    background-attachment: fixed;
 }
 
 
-/* LOGO */
+/* ==============================
+   LOGO
+================================= */
 
 .logo {
     position: absolute;
-    top: 20px;
-    left: 20px;
-    z-index: 100;
+    top: 17px;
+    left: 12px;
 
-    display: inline-block;
+    z-index: 200;
+
+    display: block;
     text-decoration: none;
-    cursor: pointer;
 }
 
 .logo img {
-    width: 130px;
+    width: 135px;
     height: auto;
+
     display: block;
 
     transition: transform 0.3s ease,
                 opacity 0.3s ease;
 }
 
-/* Logo hover animation */
-
 .logo:hover img {
     transform: scale(1.05);
     opacity: 0.8;
 }
 
-/* Back to Home indicator */
-
 .logo::after {
     content: "BACK TO HOME";
+
     display: block;
     text-align: center;
-    font-size: 10px;
-    letter-spacing: 2px;
-    margin-top: 6px;
-    color: #F58220;
+
+    font-size: 8px;
+    letter-spacing: 1px;
+
+    margin-top: 5px;
+
+    color: white;
 
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -63,180 +104,400 @@ body {
     opacity: 1;
 }
 
-/* Keyboard accessibility */
-
 .logo:focus-visible {
-    outline: 2px solid #F58220;
+    outline: 2px solid white;
     outline-offset: 5px;
 }
 
 
-/* NAVIGATION BAR */
+/* ==============================
+   NAVIGATION BAR
+================================= */
 
 nav {
+    position: relative;
+    z-index: 100;
+
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
-    gap: 10px;
 
-    background-color: #F58220;
-    width: 75%;
-    margin-left: auto;
-    margin-right: 0;
+    gap: 20%;
+    width: calc(100% - 145px);
+    margin-left: 145px;
+    margin-top: 20px;
 
-    padding: 20px 30px;
-    border-radius: 25px 0 0 25px;
+    padding: 22px 35px;
+
+    background-color: #FF8C28;
+
+    border-radius: 35px 0 0 35px;
 }
 
 
-/* MAIN NAVIGATION LINKS */
+/* Main Navigation Links */
 
 nav > a,
 nav .dropbtn {
-    text-decoration: none;
-    color: white;
-    font-size: 30px;
-    padding: 10px;
     display: block;
+
+    color: #000000;
+    text-decoration: none;
+
+    font-family: Arial, sans-serif;
+    font-size: 29px;
+    font-weight: 400;
+
+    padding: 5px 10px;
+
+    transition: opacity 0.3s ease;
+}
+
+nav > a:hover,
+nav .dropbtn:hover {
+    opacity: 0.65;
 }
 
 
-/* DROPDOWN CONTAINER */
+/* ==============================
+   DROPDOWN MENUS
+================================= */
 
 .dropdown {
     position: relative;
 }
 
-
-/* DROPDOWN MENU */
-
 .dropdown-content {
     display: none;
+
     position: absolute;
     top: 100%;
     left: 0;
 
-    background-color: #F58220;
-    min-width: 200px;
-    z-index: 100;
+    min-width: 220px;
+
+    background-color: #FF8C28;
+
+    border-radius: 0 0 12px 12px;
+
+    overflow: hidden;
+
+    z-index: 200;
 }
-
-
-/* DROPDOWN LINKS */
 
 .dropdown-content a {
     display: block;
-    padding: 15px;
-    font-size: 20px;
-    color: white;
+
+    padding: 13px 16px;
+
+    color: black;
+
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+
     text-decoration: none;
 }
 
-
-/* SHOW DROPDOWN ON HOVER */
-
-.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
     display: block;
 }
-
-
-/* DROPDOWN HOVER EFFECT */
 
 .dropdown-content a:hover {
     background-color: #D9660B;
+    color: white;
 }
 
 
-/* SKETCH IMAGES */
+/* ==============================
+   MAIN HERO SECTION
+================================= */
 
-.sketch-container {
+.hero {
+    position: relative;
+
     display: flex;
     justify-content: center;
-    gap: 20px;
+    align-items: flex-start;
+
+    min-height: calc(100vh - 130px);
+
+    padding-top: 40px;
 }
 
-.sketch-container img {
-    width: 40%;
-    height: auto;
+
+/* ==============================
+   LARGE YELLOW CIRCLE
+================================= */
+
+.hero-circle {
+    position: relative;
+
+    width: min(76vw, 1050px);
+
+    aspect-ratio: 1 / 1;
+
+    background-color: #FFC45F;
+
+    border-radius: 50%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-top: 150px;
 }
 
 
-/* LOGO - BACK TO HOME */
+/* ==============================
+   PROFILE PICTURE
+================================= */
 
-.logo {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    z-index: 100;
-    display: inline-block;
-    text-decoration: none;
-    cursor: pointer;
+.portrait-container {
+    position: relative;
+    z-index: 2;
+
+    width: 150px;
+    height: 158px;
+
+    margin-bottom: 25px;
 }
 
-.logo img {
-    width: 130px;
-    height: auto;
-    display: block;
-    transition: transform 0.3s ease,
-                opacity 0.3s ease;
+.portrait-container img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    filter: grayscale(100%);
+
+    border: none;
 }
 
-/* Logo hover animation */
 
-.logo:hover img {
-    transform: scale(1.05);
-    opacity: 0.8;
-}
+/* ==============================
+   NAME / TYPOGRAPHY
+================================= */
 
-/* Back to Home label */
+.hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
 
-.logo::after {
-    content: "BACK TO HOME";
-    display: block;
+    font-size: clamp(45px, 8.5vw, 125px);
+
+    font-weight: 500;
+
+    line-height: 1.1;
+
+    white-space: nowrap;
     text-align: center;
-    font-size: 10px;
-    letter-spacing: 2px;
-    margin-top: 6px;
-    padding: 6px 8px;
-
-    color: #F58220;
-    background-color: #ffffff;
-    border-radius: 4px;
-
-    opacity: 0;
-    transition: opacity 0.3s ease;
 }
 
-/* Show label on hover */
 
-.logo:hover::after {
-    opacity: 1;
+/* ==============================
+   PROFESSIONAL TITLES
+================================= */
+
+.profession {
+    align-self: flex-end;
+
+    margin-top: 0;
+    margin-right: 45px;
+
+    text-align: right;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    line-height: 1.45;
 }
 
-/* Keyboard accessibility */
-
-.logo:focus-visible {
-    outline: 2px solid #F58220;
-    outline-offset: 5px;
+.profession p {
+    margin: 0;
 }
 
-/* Responsive logo */
 
-@media screen and (max-width: 768px) {
+/* ==============================
+   PROCESS REFLECTION
+================================= */
+
+.reflection-section {
+    position: relative;
+
+    width: 100%;
+
+    padding: 80px 8% 100px;
+
+    display: flex;
+    justify-content: center;
+}
+
+.reflection-box {
+    width: 100%;
+    max-width: 1100px;
+
+    background-color: #FFC45F;
+
+    padding: 50px 60px;
+
+    border-radius: 25px;
+
+    color: #26241C;
+}
+
+.reflection-box h2 {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 42px;
+    font-weight: normal;
+
+    margin-bottom: 25px;
+}
+
+.reflection-box p {
+    font-family: Arial, sans-serif;
+
+    font-size: 17px;
+    line-height: 1.8;
+
+    max-width: 900px;
+}
+
+
+/* ==============================
+   TABLET RESPONSIVENESS
+================================= */
+
+@media screen and (max-width: 900px) {
+
+    .hero-circle {
+        width: 90vw;
+        padding-top: 120px;
+    }
+
+    .hero h1 {
+        font-size: 8vw;
+    }
+
+    nav {
+        padding: 18px 25px;
+        gap: 25px;
+    }
+
+    nav > a,
+    nav .dropbtn {
+        font-size: 23px;
+    }
+
+}
+
+
+/* ==============================
+   MOBILE RESPONSIVENESS
+================================= */
+
+@media screen and (max-width: 600px) {
+
+    /* Logo */
 
     .logo {
         top: 12px;
-        left: 12px;
+        left: 8px;
     }
 
     .logo img {
-        width: 90px;
+        width: 75px;
     }
 
-    .logo::after {
-        opacity: 1;
-        font-size: 8px;
-        letter-spacing: 1px;
+
+    /* Navigation */
+
+    nav {
+        width: calc(100% - 95px);
+
+        margin-left: 95px;
+        margin-top: 15px;
+
+        padding: 12px 8px;
+
+        gap: 10px;
+
+        border-radius: 22px 0 0 22px;
+    }
+
+    nav > a,
+    nav .dropbtn {
+        font-size: 15px;
+        padding: 5px 3px;
+    }
+
+    .dropdown-content {
+        min-width: 160px;
+    }
+
+    .dropdown-content a {
+        font-size: 13px;
+        padding: 10px;
+    }
+
+
+    /* Hero */
+
+    .hero {
+        min-height: calc(100vh - 90px);
+        padding-top: 65px;
+    }
+
+    .hero-circle {
+        width: 105vw;
+        padding-top: 100px;
+    }
+
+
+    /* Portrait */
+
+    .portrait-container {
+        width: 110px;
+        height: 120px;
+
+        margin-bottom: 25px;
+    }
+
+
+    /* Name */
+
+    .hero h1 {
+        font-size: 9vw;
+    }
+
+
+    /* Professional Titles */
+
+    .profession {
+        font-size: 14px;
+        margin-right: 25px;
+    }
+
+
+    /* Reflection */
+
+    .reflection-section {
+        padding: 50px 5% 70px;
+    }
+
+    .reflection-box {
+        padding: 30px 25px;
+        border-radius: 18px;
+    }
+
+    .reflection-box h2 {
+        font-size: 30px;
+    }
+
+    .reflection-box p {
+        font-size: 15px;
+        line-height: 1.7;
     }
 
 }
